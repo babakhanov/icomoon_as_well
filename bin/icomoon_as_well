@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "icomoon_as_well"
+
+icomoon = IcomoonAsWell::Icomoon.new(ARGV[0])
+
+icomoon.say_hello
+
