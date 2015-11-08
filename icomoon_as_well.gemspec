@@ -14,12 +14,6 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/babakhanov1"
   spec.license       = "MIT"
 
-  if spec.respond_to?(:metadata)
-    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
-  end
-
   spec.files         = Dir['lib/**/*']
   spec.bindir        = "bin"
   spec.executables   = ["icomoon_as_well"]  
@@ -27,6 +21,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "byebug"
   spec.add_dependency "rubyzip", "~> 1.1"
 end

@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 
 require "icomoon_as_well"
-require "byebug"
-include Byebug
 
 if File.exist?(ARGV[0].to_s) && ARGV[0].to_s =~ /^.+\.zip$/ && Dir.exist?(ARGV[1].to_s)
   target = ARGV[1]
