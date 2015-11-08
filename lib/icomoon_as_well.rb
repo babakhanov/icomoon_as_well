@@ -1,33 +1,17 @@
 require "icomoon_as_well/version"
-require "byebug"
-require 'zip'
+require "icomoon_as_well/unzip"
+require "icomoon_as_well/file_helper"
+
 module IcomoonAsWell
-  include Byebug
   class Icomoon 
+    include FileHelper
     def say_hello
       puts @path
     end
 
-    def initialize(path)
-			@files = {}
-      if File.exist?(path.to_s)
-        if path.to_s !~ /^.+\.zip$/
-          raise "It's not a zip file"
-        else
-          @path = path
-					Zip::File.open(@path) do |zip|
-						zip.each do |entry|
-              if  entry.file?
-                @files[entry.name] = entry.get_input_stream.read
-              end
-						end
-					end
-          byebug
-        end
-      else
-        raise "It's not a file there '#{path}'"
-      end
+    def initialize(path, target_folder)
+      @archive = Unzip.new(path)
+      put_files(@archive.files, @archive.files.keys.map{|name| $1 if name =~ /^fonts\/(.+)$/}.compact, "#{target_folder}/fonts")
     end
-
   end
 end

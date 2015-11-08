@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alex"]
   spec.email         = ["babakhanov1@gmail.com"]
 
-  spec.summary       = "Icomoon unpacker"
-  spec.description   = "Icomoon unpacker in a best way"
+  spec.summary       = %q{Icomoon unpacker}
+  spec.description   = %q{Icomoon unpacker in a best way}
   spec.homepage      = "https://github.com/babakhanov1"
   spec.license       = "MIT"
 
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = Dir['lib/**/*']
   spec.bindir        = "bin"
   spec.executables   = ["icomoon_as_well"]  
   spec.require_paths = ["lib"]
