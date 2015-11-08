@@ -8,7 +8,7 @@ module IcomoonAsWell
     include FileHelper
     def initialize(path, target_dir, is_rails)
       @archive = Unzip.new(path)
-      put_files(@archive.files, @archive.files.keys.map{|name| $1 if name =~ /^fonts\/(.+)$/}.compact, File.join(target_dir, "fonts", "Icomoon"))
+      put_files(@archive.files, @archive.files.keys.map{|name| name if name =~ /^fonts\/(.+)$/}.compact, File.join(target_dir, "fonts", "Icomoon"))
       @icomoon_variables = parse_css(@archive.files["style.css"])
       @icon_prefix = "icon"
       ["variables", "icons", "core", "mixins", "main"].each do |tpl|

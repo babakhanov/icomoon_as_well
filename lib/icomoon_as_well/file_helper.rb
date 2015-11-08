@@ -25,7 +25,8 @@ module IcomoonAsWell
         FileUtils.mkpath(target_dir)
       end
       names.each do |name|
-        File.open(File.join(target_dir, name), "w"){ |file| file.write(entry[name]) }
+        filename = name.gsub(/^.+\//, '')
+        File.open(File.join(target_dir, filename), "w"){ |file| file.write(entry[name]) }
       end
     end
 
