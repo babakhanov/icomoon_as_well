@@ -1,3 +1,5 @@
+require 'fileutils'
+
 module IcomoonAsWell
   module FileHelper
     def parse_css(file)
@@ -20,7 +22,7 @@ module IcomoonAsWell
     end
     def put_files(entry, names, target_dir)
       unless Dir.exist?(target_dir)
-        Dir.mkdir(target_dir)
+        FileUtils.mkpath(target_dir)
       end
       names.each do |name|
         File.open(File.join(target_dir, name), "w"){ |file| file.write(entry[name]) }
@@ -29,10 +31,10 @@ module IcomoonAsWell
 
     def icomoon_dir(target_dir)
       unless Dir.exists?("#{target_dir}/stylesheets")
-        Dir.mkdir("#{target_dir}/stylesheets")
+        FileUtils.mkpath(File.join(target_dir, "stylesheets"))
       end
       unless Dir.exists?("#{target_dir}/stylesheets/icomoon")
-        Dir.mkdir("#{target_dir}/stylesheets/icomoon")
+        FileUtils.mkpath(File.join(target_dir, "stylesheets", "icomoon"))
       end
       "#{target_dir}/stylesheets/icomoon"
     end
