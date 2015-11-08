@@ -8,7 +8,3 @@ if File.exist?(ARGV[0].to_s) && ARGV[0].to_s =~ /^.+\.zip$/ && Dir.exist?(ARGV[1
   icomoon = IcomoonAsWell::Icomoon.new(ARGV[0], ARGV[1])
 end
 
-
-
-icomoon.say_hello
-

@@ -1,0 +1,33 @@
+@mixin icon-prop {
+  font-family: "Icomoon";
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin icomoon($icon){
+  &:before {
+    content: $icon;
+    font-family: "Icomoon";
+    @include icon-prop;
+  }
+}
+@mixin icon-pseudo($icon, $times: 1){
+  $content: '';
+  @if $times > 1 {
+    @for $i from 1 through $times {
+      $content: #{$content$icon};
+    }
+  }
+  @else {
+    $content: $icon;
+  }
+  content: $content;
+  @include icon-prop;
+  @content
+}
+@mixin icomoon-after($icon){
+  &:after {
+    content: $icon;
+    @include icon-prop;
+  }
+}
+

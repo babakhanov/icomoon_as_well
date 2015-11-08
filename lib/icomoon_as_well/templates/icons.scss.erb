@@ -1,0 +1,6 @@
+<% @icomoon_variables.each do |key, value| %>.#{$icomoon-prefix}-<%=key%> { 
+  &:before {
+    content: $icon-<%=key%>;
+  }
+}
+<% end %>
