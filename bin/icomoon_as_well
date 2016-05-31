@@ -7,6 +7,6 @@ if File.exist?(ARGV[0].to_s) && ARGV[0].to_s =~ /^.+\.zip$/ && Dir.exist?(ARGV[1
   if ARGV[2] == "--rails"
     target << "app" << "assets"
   end
-  icomoon = IcomoonAsWell::Icomoon.new(ARGV[0], File.join(target), ARGV[2].to_s == "--rails")
+  IcomoonAsWell::Icomoon.new(ARGV[0], File.join(target), ARGV[2].to_s == "--rails")
 end
 

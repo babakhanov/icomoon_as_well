@@ -31,10 +31,10 @@ module IcomoonAsWell
     end
 
     def icomoon_dir(target_dir)
-      unless Dir.exists?("#{target_dir}/stylesheets")
+      unless Dir.exist?("#{target_dir}/stylesheets")
         FileUtils.mkpath(File.join(target_dir, "stylesheets"))
       end
-      unless Dir.exists?("#{target_dir}/stylesheets/icomoon")
+      unless Dir.exist?("#{target_dir}/stylesheets/icomoon")
         FileUtils.mkpath(File.join(target_dir, "stylesheets", "icomoon"))
       end
       "#{target_dir}/stylesheets/icomoon"
