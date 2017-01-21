@@ -18,6 +18,8 @@ module IcomoonAsWell
       if is_rails && target_dir =~ /^(.+)\/app\/assets.*$/
         app_dir = $1
         put_files(@archive.files, ["selection.json"], File.join(app_dir, "doc"))
+      else
+        put_files(@archive.files, ["selection.json"], target_dir)
       end
     end
   end
